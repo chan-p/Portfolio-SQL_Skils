@@ -1,0 +1,5 @@
+Number of unique titles and total inventoried films
+
+SELECT	COUNT (DISTINCT film_id) AS unique_title_count,
+		COUNT (DISTINCT inventory_id) AS total_inventoried_copies
+FROM inventory
