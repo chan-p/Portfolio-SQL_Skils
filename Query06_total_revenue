@@ -1,0 +1,4 @@
+Total rental revenue
+
+SELECT SUM (amount) AS total_revenue
+FROM payment
