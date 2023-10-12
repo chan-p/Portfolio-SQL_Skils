@@ -17,7 +17,6 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 
 **Data Set and Data structure**<br>
 A dataset compromising the following tables and columns were analyzed to develop queries (in the format of Table Name - Column Name 1, Column Name 2...):<br>
-![Rockbuster Dataset Entity Relationship Diagram](Rockbuster_ERD.png)<br>
 ● payment - payment_id, customer_id, staff_id, rental_id, amount, payment_date<br>
 ● rental_id - rental_date, inventory_id, customer_id, return_date, staff_id, last_update<br>
 ● store_id - manager_staff_id, address_id, last_update<br>
@@ -32,7 +31,8 @@ A dataset compromising the following tables and columns were analyzed to develop
 ● address_id - address, address2, district, city_id, postal_code, phone, last_update<br>
 ● language_id - name, last_update<br>
 ● city_id - city, country_id, last_update<br>
-● country_id - country, last_update<br>
+● country_id - country, last_update<br><br>
+![Rockbuster Dataset Entity Relationship Diagram](Rockbuster_ERD.png)<br>
 
 ## Final Product
 The dataset analyzed using the SQL queries were visually summarized using Tableau dashboards. Please click the link below for the final product (click different tabs for visualizations created)<br><br>
