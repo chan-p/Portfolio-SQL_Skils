@@ -1,0 +1,11 @@
+List of top 10 cities with the most number of customers from the top 10 countries with the most number of customers 
+
+SELECT D.country, C.city_id, C.city, COUNT(customer_id) AS number_of_customers
+FROM customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_id = D.country_id
+WHERE D.country_id IN (44,23,103,50,60,15,80,75,97,45)
+GROUP BY country, C.city_id, city
+ORDER BY number_of_customers DESC
+LIMIT 10;
