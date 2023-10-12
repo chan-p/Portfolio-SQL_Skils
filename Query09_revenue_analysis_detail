@@ -1,0 +1,50 @@
+List to see the revenue per each inventoried copy, average rental duration per each rental, total revenue, daily rental rate, along with other basic film information for analyses
+
+/* Noted that the payment amount for each rental was not the same as what is defined as the rental rate in the film table 
+Based on this, made an assumption that the payment amounts per rental vary based on the number of days rented
+Calculated the daily rental rates baesd on the default rental_duration and rental_rate defined in the films table
+Then, the number of actual days rented was calculated using the total payment amount of each film */
+WITH film_rev (title, description, release_year, language, category, rental_duration, rental_rate, daily_rate, length, rating, times_rented, copies_owned, total_rental_revenue) AS
+	(SELECT	title, 
+			description, 
+			release_year, 
+			E.name AS language, 
+			G.name AS category, 
+			rental_duration, 
+			rental_rate, 
+			rental_rate/rental_duration AS daily_rate, --calculation of the daily rate based on the default_rental_rate and rental_duration in the film table
+			length, 
+			rating,
+			COUNT(DISTINCT C.rental_id) AS times_rented,
+	 		COUNT(DISTINCT B.inventory_id) AS copies_owned,
+			SUM(amount) AS total_rental_revenue
+	 FROM film A
+	 INNER JOIN inventory B ON A.film_id = B.film_id -- using an inner join to make sure the population is the films that Rockbuster have. For the films listed in the film table, but if they are not inventoried, they will not appear
+	 LEFT JOIN rental C ON B.inventory_id = C.inventory_id
+	 LEFT JOIN payment D ON C.rental_id = D.rental_id
+	 LEFT JOIN language E ON A.language_id = E.language_id
+	 LEFT JOIN film_category F ON A.film_id = F.film_id
+	 LEFT JOIN category G ON F.category_id = G.category_id
+	 GROUP BY A.film_id, E.name, G.name
+	 ORDER BY total_rental_revenue DESC)
+SELECT	title, 
+		description, 
+		release_year, 
+		language,
+		category,
+		rental_duration, 
+		rental_rate, 
+		daily_rate, 
+		length, 
+		rating,
+		times_rented,
+		copies_owned,
+		total_rental_revenue,
+		total_rental_revenue/copies_owned AS revenue_per_copy,
+		total_rental_revenue/daily_rate AS days_rented, -- days rented calculated based on total payment amount and daily rate
+		CASE
+			WHEN times_rented = 0
+			THEN 0
+			ELSE (total_rental_revenue/daily_rate)/times_rented
+		END AS avg_days_rented_per_rental -- average actual days rented calculated for each film based on days rented and number of times rented or the unique count of rental IDs
+FROM film_rev
