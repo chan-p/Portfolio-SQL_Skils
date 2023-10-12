@@ -1,0 +1,20 @@
+Top and bottom revenue contributing films
+
+SELECT	title, 
+		description, 
+		release_year, 
+		E.name AS language, 
+		rental_duration, 
+		rental_rate, 
+		length, 
+		rating,
+		COUNT(DISTINCT C.rental_id) AS times_rented,
+		COUNT(DISTINCT B.inventory_id) AS copies_owned,
+		SUM(amount) AS total_rental_revenue
+FROM film A
+INNER JOIN inventory B ON A.film_id = B.film_id -- using an inner join to make sure the population is the films that Rockbuster have. For the films listed in the film table, but if they are not inventoried, they will not appear
+LEFT JOIN rental C ON B.inventory_id = C.inventory_id
+LEFT JOIN payment D ON C.rental_id = D.rental_id
+LEFT JOIN language E ON A.language_id = E.language_id
+GROUP BY A.film_id, E.name
+ORDER BY total_rental_revenue DESC
