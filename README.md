@@ -17,6 +17,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 
 **Data Set and Data structure**<br>
 A dataset compromising the following tables and columns were analyzed to develop queries (in the format of Table Name - Column Name 1, Column Name 2...):<br>
+![Rockbuster Dataset Entity Relationship Diagram](/assets/images/Rockbuster_ERD.png)<br>
 ● payment - payment_id, customer_id, staff_id, rental_id, amount, payment_date<br>
 ● rental_id - rental_date, inventory_id, customer_id, return_date, staff_id, last_update<br>
 ● store_id - manager_staff_id, address_id, last_update<br>
