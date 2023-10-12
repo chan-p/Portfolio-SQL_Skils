@@ -1,0 +1,12 @@
+List of the top 10 high lifetime value customers
+
+SELECT A.customer_id, first_name, last_name, country, SUM(amount) AS lifetime_value
+FROM customer A
+INNER JOIN rental B ON A.customer_id = B.customer_id
+INNER JOIN payment C ON B.rental_id = C.rental_id
+INNER JOIN address D ON A.address_id = D.address_id
+INNER JOIN city E ON D.city_id = E.city_id
+INNER JOIN country F ON E.country_id = F.country_id
+GROUP BY A.customer_id, country
+ORDER BY lifetime_value DESC
+LIMIT 10;
