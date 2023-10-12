@@ -37,5 +37,5 @@ A dataset compromising the following tables and columns were analyzed to develop
 ## Final Product
 The dataset analyzed using the SQL queries were visually summarized using Tableau dashboards and they were used to create the final business presentation. Additionally the data dictionary was put together as a reference. Please refer to the links below for details:<br><br>
 Tableau Link (multiple tabs available): [Tableau Dashboard](https://public.tableau.com/views/CF_DI_E310_1/Customer_Base?:language=en-US&:display_count=n&:origin=viz_share_link)<br>
-Business Presentation: ![Business Presentation](Rockbuster_2020_Strategy_Data_Analysis_CP.pdf)<br>
-Data Dictionary: ![Data Dictionary](Rockbuster_Data_Dictionary_CP.pdf)<br>
+[Final Business Presentation](Rockbuster_2020_Strategy_Data_Analysis_CP.pdf)<br>
+[Data Dictionary](Rockbuster_Data_Dictionary_CP.pdf)<br>
