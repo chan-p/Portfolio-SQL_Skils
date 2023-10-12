@@ -15,9 +15,9 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 ● Where are customers with a high lifetime value based?<br>
 ● Do sales figures vary between geographic regions?<br>
 
-**Original Data Source**
-[Rockbuster data set](http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
-[PostgreSQL Database](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+**Original Data Source**<br>
+[Rockbuster data set](http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)<br>
+[PostgreSQL Database](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br>
 
 **Data Structure**<br>
 A dataset compromising the following tables and columns were analyzed to develop queries (in the format of Table Name - Column Name 1, Column Name 2...):<br>
