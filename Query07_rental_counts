@@ -1,0 +1,4 @@
+Number of rentals
+
+SELECT COUNT(DISTINCT rental_id) AS total_rental
+FROM rental
